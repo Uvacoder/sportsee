@@ -2,12 +2,11 @@ import { FC, useContext, useEffect } from "react";
 import Layout from "../components/Layout";
 import UserContext from "../contexts/UserContext";
 import AuthContext from "../contexts/AuthContext";
+import Greetings from "../components/Greetings";
 
 const Home: FC = () => {
   const { user, getUser, isLoading } = useContext(UserContext);
   const { userId } = useContext(AuthContext);
-
-  console.log("user", user);
 
   useEffect(() => {
     if (userId) {
@@ -16,7 +15,11 @@ const Home: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
-  return <Layout>{isLoading === false && user?.userInfos.firstName}</Layout>;
+  return (
+    <Layout>
+      <Greetings firstName={user?.userInfos.firstName} isLoaded={!isLoading} />
+    </Layout>
+  );
 };
 
 export default Home;

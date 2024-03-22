@@ -21,10 +21,11 @@ const styles = stylex.create({
     flex: 1,
   },
   main: {
-    padding: 20,
+    padding: "66px 104px",
     backgroundColor: "white",
     color: "black",
     flex: 1,
+    height: "100%",
   },
   logOutButton: {
     position: "absolute",

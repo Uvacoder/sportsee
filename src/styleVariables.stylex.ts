@@ -35,6 +35,10 @@ export const typography = stylex.defineVars({
    */
   xxl: "40px",
   /**
+   * 40px
+   */
+  xxxl: "48px",
+  /**
    * 16px
    */
   fontSize: "16px",

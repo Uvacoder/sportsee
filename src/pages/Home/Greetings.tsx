@@ -1,6 +1,6 @@
 import { FC } from "react";
 import * as stylex from "@stylexjs/stylex";
-import { colors, spacing, typography } from "../styleVariables.stylex";
+import { colors, spacing, typography } from "../../styleVariables.stylex";
 
 const styles = stylex.create({
   root: {

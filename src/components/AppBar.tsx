@@ -39,17 +39,21 @@ const styles = stylex.create({
   },
 });
 
-const Link: FC<{ image: string; route: string }> = ({ image, route }) => (
+const Link: FC<{ image: string; route: string; alt: string }> = ({
+  image,
+  route,
+  alt,
+}) => (
   <NavLink to={route}>
-    <img src={image} alt="icon" />
+    <img src={image} alt={`${alt} icon`} />
   </NavLink>
 );
 
 const routes = [
-  { image: yogaIcon, route: "/" },
-  { image: swimmingIcon, route: "/" },
-  { image: bikeRidingIcon, route: "/" },
-  { image: liftingIcon, route: "/" },
+  { image: yogaIcon, route: "/yoga", alt: "Yoga" },
+  { image: swimmingIcon, route: "/swimming", alt: "Swimming" },
+  { image: bikeRidingIcon, route: "/riding", alt: "Bike Riding" },
+  { image: liftingIcon, route: "/lifting", alt: "Lifting" },
 ];
 
 const AppBar: FC = () => {
@@ -57,7 +61,12 @@ const AppBar: FC = () => {
     <div {...stylex.props(styles.root)}>
       <div {...stylex.props(styles.icons)}>
         {routes.map((route, index) => (
-          <Link key={index} image={route.image} route={route.route} />
+          <Link
+            key={index}
+            image={route.image}
+            route={route.route}
+            alt={route.alt}
+          />
         ))}
       </div>
       <div {...stylex.props(styles.copyrightContainer)}>

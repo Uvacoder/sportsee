@@ -2,7 +2,6 @@ import { FC, PropsWithChildren, useContext, useEffect } from "react";
 import * as stylex from "@stylexjs/stylex";
 import Header from "./Header";
 import AppBar from "./AppBar";
-import { colors } from "../styleVariables.stylex";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 
@@ -38,7 +37,8 @@ const styles = stylex.create({
     right: 0,
     padding: "8px 16px",
     fontSize: "16px",
-    backgroundColor: colors.primary,
+    fontWeight: 500,
+    backgroundColor: "#B30000",
     color: "white",
     border: "none",
     cursor: "pointer",

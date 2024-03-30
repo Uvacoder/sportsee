@@ -12,7 +12,7 @@ export const colors = stylex.defineVars({
   background: "white",
   lightBlack: "#1F1F1F",
   lightGrey: "#FBFBFB",
-  grey: "#74798C",
+  grey: "#545564",
 });
 
 export const typography = stylex.defineVars({

@@ -41,10 +41,10 @@ export const StatCard: FC<StatCardProps> = ({ icon, data, label, unit }) => {
   return (
     <div {...stylex.props(styles.root)}>
       <div>
-        <img src={icon} alt="icon" />
+        <img src={icon} alt={`${label} icon`} />
       </div>
       <div {...stylex.props(styles.data)}>
-        <p {...stylex.props(styles.dataValue)}>{data + unit}</p>
+        <h2 {...stylex.props(styles.dataValue)}>{data + unit}</h2>
         <p {...stylex.props(styles.dataLabel)}>{label}</p>
       </div>
     </div>

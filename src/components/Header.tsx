@@ -64,7 +64,7 @@ const Link: FC<{ label: string; route: string }> = ({ label, route }) => (
 const Header: FC = () => (
   <header {...stylex.props(styles.root)}>
     <div {...stylex.props(styles.logoContainer)}>
-      <img src="/sportsee_icon.svg" />
+      <img src="/sportsee_icon.svg" alt="sportsee icon" />
       <span {...stylex.props(styles.appName)}>SportSee</span>
     </div>
     <nav {...stylex.props(styles.nav)}>

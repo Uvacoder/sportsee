@@ -2,16 +2,37 @@ import { FC, PropsWithChildren, useState } from "react";
 import UserContext from "./UserContext";
 import { User } from "../types/user";
 import { requests } from "../api/requests";
+import { UserActivity } from "../types/userActivity";
+import { UserAverageSessions } from "../types/userAverageSessions";
+import { UserPerformance } from "../types/userPerformance";
 
 const UserProvider: FC<PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [activity, setActivity] = useState<UserActivity | null>(null);
+  const [averageSession, setAverageSession] =
+    useState<UserAverageSessions | null>(null);
+  const [performance, setPerformance] = useState<UserPerformance | null>(null);
   const [isLoading, setIsLoading] = useState<null | boolean>(null);
 
   const getUser = async (userId: number) => {
     try {
       setIsLoading(true);
-      const { data: user } = await requests.getUser(userId);
-      setUser(user);
+
+      const promises = [
+        requests.getUser(userId),
+        requests.getActivity(userId),
+        requests.getAverageSession(userId),
+        requests.getPerformance(userId),
+      ];
+
+      const [user, activity, averageSession, performance] = await Promise.all(
+        promises
+      );
+
+      setUser(user.data);
+      setActivity(activity.data);
+      setAverageSession(averageSession.data);
+      setPerformance(performance.data);
     } catch (error) {
       console.error("Failed to get user", error);
     } finally {
@@ -24,7 +45,16 @@ const UserProvider: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ user, getUser, isLoading, resetUser, resetLoading }}
+      value={{
+        isLoading,
+        resetLoading,
+        getUser,
+        resetUser,
+        user,
+        activity,
+        averageSession,
+        performance,
+      }}
     >
       {children}
     </UserContext.Provider>

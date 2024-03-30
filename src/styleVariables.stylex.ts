@@ -11,6 +11,8 @@ export const colors = stylex.defineVars({
   pinkContrast: "rgba(253, 81, 129, 0.1)",
   background: "white",
   lightBlack: "#1F1F1F",
+  lightGrey: "#FBFBFB",
+  grey: "#74798C",
 });
 
 export const typography = stylex.defineVars({

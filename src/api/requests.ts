@@ -15,4 +15,22 @@ export const requests = {
     );
     return response.data;
   },
+  getActivity: async (userId: number) => {
+    const response = await client.get(
+      Endpoints.ACTIVITY.replace(":userId", userId.toString())
+    );
+    return response.data;
+  },
+  getAverageSession: async (userId: number) => {
+    const response = await client.get(
+      Endpoints.AVERAGE_SESSION.replace(":userId", userId.toString())
+    );
+    return response.data;
+  },
+  getPerformance: async (userId: number) => {
+    const response = await client.get(
+      Endpoints.PERFORMANCE.replace(":userId", userId.toString())
+    );
+    return response.data;
+  },
 };

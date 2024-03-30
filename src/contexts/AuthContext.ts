@@ -12,4 +12,6 @@ const AuthContext = createContext<AuthContextType>({
   logout: () => {},
 });
 
+AuthContext.displayName = "AuthContext";
+
 export default AuthContext;

@@ -19,10 +19,13 @@ const UserProvider: FC<PropsWithChildren> = ({ children }) => {
     }
   };
 
+  const resetUser = () => setUser(null);
   const resetLoading = () => setIsLoading(null);
 
   return (
-    <UserContext.Provider value={{ user, getUser, isLoading, resetLoading }}>
+    <UserContext.Provider
+      value={{ user, getUser, isLoading, resetUser, resetLoading }}
+    >
       {children}
     </UserContext.Provider>
   );

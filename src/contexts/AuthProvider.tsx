@@ -8,7 +8,7 @@ const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const { setItem, getItem } = useLocalStorage();
 
-  const { resetLoading } = useContext(UserContext);
+  const { resetLoading, resetUser } = useContext(UserContext);
 
   const login = (userId: number) => {
     setItem("userId", userId);
@@ -19,6 +19,7 @@ const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     setItem("userId", "");
     setUserId(null);
     resetLoading();
+    resetUser();
   };
 
   const storedUserId = getItem("userId");

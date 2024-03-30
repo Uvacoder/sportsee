@@ -6,7 +6,7 @@ const styles = stylex.create({
   root: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.xxl,
+    gap: spacing.lg,
   },
   title: {
     color: "black",

@@ -8,23 +8,22 @@ import proteinIcon from "../../assets/protein-icon.svg";
 import fatIcon from "../../assets/fat-icon.svg";
 import carbsIcon from "../../assets/carbs-icon.svg";
 import { KeyData } from "../../types/user";
+import DailyActivity from "./DailyActivity";
+
+const MEDIA_MOBILE = "@media (max-width: 1426px)" as const;
 
 const styles = stylex.create({
   root: {
     display: "flex",
     flex: 1,
     gap: spacing.lg,
+    flexWrap: "wrap",
   },
   leftSection: {
     flex: 1,
-    backgroundColor: "blue",
     display: "flex",
     flexDirection: "column",
     gap: spacing.lg,
-  },
-  leftTopSection: {
-    backgroundColor: "green",
-    flex: 1,
   },
   leftBottomSection: {
     display: "flex",
@@ -32,9 +31,15 @@ const styles = stylex.create({
     justifyContent: "center",
   },
   rightSection: {
-    width: "258px",
+    width: {
+      default: "258px",
+      [MEDIA_MOBILE]: "100%",
+    },
     display: "flex",
-    flexDirection: "column",
+    flexDirection: {
+      default: "column",
+      [MEDIA_MOBILE]: "row",
+    },
     justifyContent: "space-between",
   },
   graphCard: {
@@ -46,8 +51,6 @@ const styles = stylex.create({
 
 const Content: FC = () => {
   const { user } = useContext(UserContext);
-
-  console.log(user?.keyData);
 
   const getStatCardProps: (
     stat: [keyof KeyData | string, number]
@@ -82,9 +85,7 @@ const Content: FC = () => {
   return (
     <div {...stylex.props(styles.root)}>
       <section {...stylex.props(styles.leftSection)}>
-        <section {...stylex.props(styles.leftTopSection)}>
-          left top section
-        </section>
+        <DailyActivity />
         <section {...stylex.props(styles.leftBottomSection)}>
           <div {...stylex.props(styles.graphCard)}>graph card</div>
           <div {...stylex.props(styles.graphCard)}>graph card</div>

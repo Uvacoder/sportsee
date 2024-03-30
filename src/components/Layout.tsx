@@ -21,14 +21,14 @@ const styles = stylex.create({
     flex: 1,
   },
   main: {
-    padding: "66px 104px",
+    padding: "46px 104px",
     backgroundColor: "white",
     color: "black",
     flex: 1,
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    gap: "77px",
+    gap: "42px",
   },
   logOutButton: {
     position: "absolute",

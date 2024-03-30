@@ -11,6 +11,7 @@ import { KeyData } from "../../types/user";
 import DailyActivity from "./DailyActivity";
 import Score from "./Score";
 import SessionsDuration from "./SessionsDuration";
+import Performance from "./Performance";
 
 const MEDIA_MOBILE = "@media (max-width: 1426px)" as const;
 
@@ -90,7 +91,7 @@ const Content: FC = () => {
         <DailyActivity />
         <section {...stylex.props(styles.leftBottomSection)}>
           <SessionsDuration />
-          <div {...stylex.props(styles.graphCard)}>graph card</div>
+          <Performance />
           <Score />
         </section>
       </section>

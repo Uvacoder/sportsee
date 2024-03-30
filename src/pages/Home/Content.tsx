@@ -10,6 +10,7 @@ import carbsIcon from "../../assets/carbs-icon.svg";
 import { KeyData } from "../../types/user";
 import DailyActivity from "./DailyActivity";
 import Score from "./Score";
+import SessionsDuration from "./SessionsDuration";
 
 const MEDIA_MOBILE = "@media (max-width: 1426px)" as const;
 
@@ -88,7 +89,7 @@ const Content: FC = () => {
       <section {...stylex.props(styles.leftSection)}>
         <DailyActivity />
         <section {...stylex.props(styles.leftBottomSection)}>
-          <div {...stylex.props(styles.graphCard)}>graph card</div>
+          <SessionsDuration />
           <div {...stylex.props(styles.graphCard)}>graph card</div>
           <Score />
         </section>

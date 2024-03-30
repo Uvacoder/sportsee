@@ -29,6 +29,8 @@ const styles = stylex.create({
     display: "flex",
     flexDirection: "column",
     gap: "42px",
+    maxHeight: "calc(100vh - 90px)",
+    overflowY: "auto",
   },
   logOutButton: {
     position: "absolute",

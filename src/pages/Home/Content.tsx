@@ -9,6 +9,7 @@ import fatIcon from "../../assets/fat-icon.svg";
 import carbsIcon from "../../assets/carbs-icon.svg";
 import { KeyData } from "../../types/user";
 import DailyActivity from "./DailyActivity";
+import Score from "./Score";
 
 const MEDIA_MOBILE = "@media (max-width: 1426px)" as const;
 
@@ -28,7 +29,7 @@ const styles = stylex.create({
   leftBottomSection: {
     display: "flex",
     gap: spacing.lg,
-    justifyContent: "center",
+    justifyContent: "space-between",
   },
   rightSection: {
     width: {
@@ -89,7 +90,7 @@ const Content: FC = () => {
         <section {...stylex.props(styles.leftBottomSection)}>
           <div {...stylex.props(styles.graphCard)}>graph card</div>
           <div {...stylex.props(styles.graphCard)}>graph card</div>
-          <div {...stylex.props(styles.graphCard)}>graph card</div>
+          <Score />
         </section>
       </section>
       <section {...stylex.props(styles.rightSection)}>

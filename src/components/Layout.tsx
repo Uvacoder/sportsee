@@ -5,6 +5,8 @@ import AppBar from "./AppBar";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 
+const MEDIA_MOBILE = "@media (max-width: 1426px)" as const;
+
 const styles = stylex.create({
   root: {
     display: "flex",
@@ -20,7 +22,10 @@ const styles = stylex.create({
     flex: 1,
   },
   main: {
-    padding: "46px 104px",
+    padding: {
+      default: "46px 104px",
+      [MEDIA_MOBILE]: "46px 32px",
+    },
     backgroundColor: "white",
     color: "black",
     flex: 1,

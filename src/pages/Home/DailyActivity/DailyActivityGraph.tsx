@@ -68,24 +68,25 @@ const DailyActivityGraph: FC = () => {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} barGap={8}>
           <CartesianGrid strokeDasharray="1 1" vertical={false} />
+          <YAxis
+            yAxisId="kilogram"
+            dataKey="kilogram"
+            type="number"
+            domain={["dataMin - 1", "dataMax"]}
+            axisLine={false}
+            interval={"equidistantPreserveStart"}
+            orientation="right"
+            tickLine={false}
+            tick={{ fontSize: 14 }}
+            dx={15}
+            allowDecimals={false}
+          />
+          <YAxis hide yAxisId="calories" />
           <XAxis
             dataKey="day"
             tickLine={false}
             tickFormatter={(_, index) => (index + 1).toLocaleString()}
           />
-          <YAxis
-            yAxisId="kilogram"
-            dataKey="kilogram"
-            type="number"
-            domain={["dataMin - 2", "dataMax + 1"]}
-            tickCount={3}
-            axisLine={false}
-            orientation="right"
-            tickLine={false}
-            tick={{ fontSize: 14 }}
-            dx={15}
-          />
-          <YAxis dataKey="calories" type="number" hide />
           <text x="0%" y="5%" {...stylex.props(styles.title)}>
             Activité quotidienne
           </text>
@@ -115,6 +116,7 @@ const DailyActivityGraph: FC = () => {
             formatter={(value, name) => [`${value}${getUnit(name)}`]}
           />
           <Bar
+            yAxisId="kilogram"
             dataKey="kilogram"
             name="Poids (kg)"
             fill="#000"
@@ -123,6 +125,7 @@ const DailyActivityGraph: FC = () => {
             legendType="circle"
           />
           <Bar
+            yAxisId="calories"
             dataKey="calories"
             name="Calories brûlées (kCal)"
             fill={colors.primary}

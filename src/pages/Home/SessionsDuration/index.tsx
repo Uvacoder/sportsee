@@ -74,7 +74,7 @@ const SessionsDuration: FC = () => {
 
   const getDay = (day: number) => {
     const date = new Date();
-    date.setDate(day + 3); // the first day of the week is Sunday, so we add 3 to get the correct day
+    date.setDate(day);
 
     if (day === 0 || day === 8) return ""; // we don't want to display the first and last day since they're fake
 

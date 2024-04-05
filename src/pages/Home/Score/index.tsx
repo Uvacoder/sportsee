@@ -38,74 +38,87 @@ const Score: FC = () => {
 
   const data = [
     {
-      score,
+      score: score || 0,
       fill: colors.primary,
     },
   ];
 
   return (
     <div {...stylex.props(styles.root)}>
-      {score && (
-        <ResponsiveContainer width="100%" height="100%">
-          <RadialBarChart
-            cx="50%"
-            cy="50%"
-            innerRadius="60%"
-            outerRadius="70%"
-            barSize={10}
-            data={data}
-            startAngle={90}
-            endAngle={450}
+      <ResponsiveContainer width="100%" height="100%">
+        <RadialBarChart
+          cx="50%"
+          cy="50%"
+          innerRadius="60%"
+          outerRadius="70%"
+          barSize={10}
+          data={data}
+          startAngle={90}
+          endAngle={450}
+        >
+          <PolarAngleAxis
+            type="number"
+            domain={[0, 100]}
+            angleAxisId={0}
+            tick={false}
+          />
+          <text
+            x="20"
+            y="20"
+            textAnchor="start"
+            dominantBaseline="hanging"
+            {...stylex.props(styles.label)}
           >
-            <PolarAngleAxis
-              type="number"
-              domain={[0, 100]}
-              angleAxisId={0}
-              tick={false}
-            />
-            <text
-              x="20"
-              y="20"
-              textAnchor="start"
-              dominantBaseline="hanging"
-              {...stylex.props(styles.label)}
-            >
-              Score
-            </text>
+            Score
+          </text>
+          {score ? (
+            <>
+              <text
+                x="50%"
+                y="50%"
+                dy={-20}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                {...stylex.props(styles.value)}
+              >
+                {score}%
+              </text>
+              <text
+                x="50%"
+                y="50%"
+                dy={+10}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                {...stylex.props(styles.helpText)}
+              >
+                de votre
+              </text>
+              <text
+                x="50%"
+                y="50%"
+                dy={+32}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                {...stylex.props(styles.helpText)}
+              >
+                objectif
+              </text>
+            </>
+          ) : (
             <text
               x="50%"
               y="50%"
-              dy={-20}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              {...stylex.props(styles.value)}
-            >
-              {score}%
-            </text>
-            <text
-              x="50%"
-              y="50%"
-              dy={+10}
+              dy={0}
               textAnchor="middle"
               dominantBaseline="middle"
               {...stylex.props(styles.helpText)}
             >
-              de votre
+              Donnée non disponible
             </text>
-            <text
-              x="50%"
-              y="50%"
-              dy={+32}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              {...stylex.props(styles.helpText)}
-            >
-              objectif
-            </text>
-            <RadialBar dataKey="score" cornerRadius={"50%"} />
-          </RadialBarChart>
-        </ResponsiveContainer>
-      )}
+          )}
+          <RadialBar dataKey="score" cornerRadius={"50%"} />
+        </RadialBarChart>
+      </ResponsiveContainer>
     </div>
   );
 };

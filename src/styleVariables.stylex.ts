@@ -9,6 +9,8 @@ export const colors = stylex.defineVars({
   yellowContrast: "rgba(249, 206, 35, 0.1)",
   pink: "#FD5181",
   pinkContrast: "rgba(253, 81, 129, 0.1)",
+  green: "#00C48C",
+  greenContrast: "rgba(0, 196, 140, 0.1)",
   background: "white",
   lightBlack: "#1F1F1F",
   lightGrey: "#FBFBFB",

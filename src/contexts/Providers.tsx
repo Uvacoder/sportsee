@@ -1,12 +1,15 @@
 import { FC, PropsWithChildren } from "react";
 import AuthProvider from "./AuthProvider";
 import UserProvider from "./UserProvider";
+import NotificationProvider from "./NotificationProvider";
 
 const Providers: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <AuthProvider>
-      <UserProvider>{children}</UserProvider>
-    </AuthProvider>
+    <NotificationProvider>
+      <AuthProvider>
+        <UserProvider>{children}</UserProvider>
+      </AuthProvider>
+    </NotificationProvider>
   );
 };
 

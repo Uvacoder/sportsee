@@ -4,6 +4,7 @@ import Header from "./Header";
 import AppBar from "./AppBar";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
+import Notification from "./Notification";
 
 const MEDIA_MOBILE = "@media (max-width: 1426px)" as const;
 
@@ -82,6 +83,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       <button onClick={onLogOut} {...stylex.props(styles.logOutButton)}>
         Log out
       </button>
+      <Notification />
     </div>
   );
 };

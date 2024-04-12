@@ -1,10 +1,11 @@
-import { FC, PropsWithChildren, useState } from "react";
+import { FC, PropsWithChildren, useContext, useState } from "react";
 import UserContext from "./UserContext";
 import { User } from "../types/user";
 import { requests } from "../api/requests";
 import { UserActivity } from "../types/userActivity";
 import { UserAverageSessions } from "../types/userAverageSessions";
 import { UserPerformance } from "../types/userPerformance";
+import NotificationContext from "./NotificationContext";
 
 const UserProvider: FC<PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -13,6 +14,8 @@ const UserProvider: FC<PropsWithChildren> = ({ children }) => {
     useState<UserAverageSessions | null>(null);
   const [performance, setPerformance] = useState<UserPerformance | null>(null);
   const [isLoading, setIsLoading] = useState<null | boolean>(null);
+
+  const { showNotification } = useContext(NotificationContext);
 
   const getUser = async (userId: number) => {
     try {
@@ -35,6 +38,11 @@ const UserProvider: FC<PropsWithChildren> = ({ children }) => {
       setPerformance(performance.data);
     } catch (error) {
       console.error("Failed to get user", error);
+      showNotification(
+        `Failed to get user [getUser]: ${error}`,
+        "error",
+        false
+      );
     } finally {
       setIsLoading(false);
     }

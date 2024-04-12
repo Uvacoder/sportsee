@@ -30,6 +30,10 @@ const styles = stylex.create({
     marginLeft: "4px",
     marginRight: "10px",
   },
+  helpText: {
+    fontSize: typography.md,
+    fill: colors.grey,
+  },
 });
 
 const DailyActivityGraph: FC = () => {
@@ -67,72 +71,87 @@ const DailyActivityGraph: FC = () => {
     <div {...stylex.props(styles.root)} ref={containerRef}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} barGap={8}>
-          <CartesianGrid strokeDasharray="1 1" vertical={false} />
-          <YAxis
-            yAxisId="kilogram"
-            dataKey="kilogram"
-            type="number"
-            domain={["dataMin - 1", "dataMax"]}
-            axisLine={false}
-            interval={"equidistantPreserveStart"}
-            orientation="right"
-            tickLine={false}
-            tick={{ fontSize: 14 }}
-            dx={15}
-            allowDecimals={false}
-          />
-          <YAxis hide yAxisId="calories" />
-          <XAxis
-            dataKey="day"
-            tickLine={false}
-            tickFormatter={(_, index) => (index + 1).toLocaleString()}
-          />
           <text x="0%" y="5%" {...stylex.props(styles.title)}>
             Activité quotidienne
           </text>
-          <Legend
-            verticalAlign="top"
-            align="right"
-            height={70}
-            iconSize={8}
-            formatter={(value) => (
-              <span {...stylex.props(styles.label)}>{value}</span>
-            )}
-          />
-          <Tooltip
-            wrapperStyle={{
-              fontSize: typography.sm,
-              color: "white",
-              fontWeight: 500,
-            }}
-            itemStyle={{ color: "white", fontWeight: 500 }}
-            contentStyle={{
-              backgroundColor: colors.primary,
-              border: "none",
-              display: "flex",
-              flexDirection: "column",
-              gap: "8px",
-            }}
-            formatter={(value, name) => [`${value}${getUnit(name)}`]}
-          />
-          <Bar
-            yAxisId="kilogram"
-            dataKey="kilogram"
-            name="Poids (kg)"
-            fill="#000"
-            barSize={7}
-            radius={[5, 5, 0, 0]}
-            legendType="circle"
-          />
-          <Bar
-            yAxisId="calories"
-            dataKey="calories"
-            name="Calories brûlées (kCal)"
-            fill={colors.primary}
-            barSize={7}
-            radius={[5, 5, 0, 0]}
-            legendType="circle"
-          />
+          {data ? (
+            <>
+              <CartesianGrid strokeDasharray="1 1" vertical={false} />
+              <YAxis
+                yAxisId="kilogram"
+                dataKey="kilogram"
+                type="number"
+                domain={["dataMin - 1", "dataMax"]}
+                axisLine={false}
+                interval={"equidistantPreserveStart"}
+                orientation="right"
+                tickLine={false}
+                tick={{ fontSize: 14 }}
+                dx={15}
+                allowDecimals={false}
+              />
+              <YAxis hide yAxisId="calories" />
+              <XAxis
+                dataKey="day"
+                tickLine={false}
+                tickFormatter={(_, index) => (index + 1).toLocaleString()}
+              />
+              <Legend
+                verticalAlign="top"
+                align="right"
+                height={70}
+                iconSize={8}
+                formatter={(value) => (
+                  <span {...stylex.props(styles.label)}>{value}</span>
+                )}
+              />
+              <Tooltip
+                wrapperStyle={{
+                  fontSize: typography.sm,
+                  color: "white",
+                  fontWeight: 500,
+                }}
+                itemStyle={{ color: "white", fontWeight: 500 }}
+                contentStyle={{
+                  backgroundColor: colors.primary,
+                  border: "none",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                }}
+                formatter={(value, name) => [`${value}${getUnit(name)}`]}
+              />
+              <Bar
+                yAxisId="kilogram"
+                dataKey="kilogram"
+                name="Poids (kg)"
+                fill="#000"
+                barSize={7}
+                radius={[5, 5, 0, 0]}
+                legendType="circle"
+              />
+              <Bar
+                yAxisId="calories"
+                dataKey="calories"
+                name="Calories brûlées (kCal)"
+                fill={colors.primary}
+                barSize={7}
+                radius={[5, 5, 0, 0]}
+                legendType="circle"
+              />
+            </>
+          ) : (
+            <text
+              x="50%"
+              y="50%"
+              dy={0}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              {...stylex.props(styles.helpText)}
+            >
+              Données non disponibles
+            </text>
+          )}
         </BarChart>
       </ResponsiveContainer>
     </div>

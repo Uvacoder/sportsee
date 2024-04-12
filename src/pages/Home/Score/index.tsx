@@ -113,7 +113,7 @@ const Score: FC = () => {
               dominantBaseline="middle"
               {...stylex.props(styles.helpText)}
             >
-              Donnée non disponible
+              Données non disponibles
             </text>
           )}
           <RadialBar dataKey="score" cornerRadius={"50%"} />

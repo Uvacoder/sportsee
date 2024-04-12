@@ -46,6 +46,10 @@ const styles = stylex.create({
     strokeWidth: 16,
     strokeOpacity: 0.1,
   },
+  helpText: {
+    fontSize: typography.md,
+    fill: "white",
+  },
 });
 
 const CustomCursor: FC<{
@@ -122,25 +126,40 @@ const SessionsDuration: FC = () => {
           <text x="20" y="20" dy="24" {...stylex.props(styles.label)}>
             sessions
           </text>
-          <Tooltip
-            wrapperStyle={{ outline: "none" }}
-            itemStyle={{
-              color: "black",
-              fontSize: typography.sm,
-              fontWeight: 500,
-            }}
-            labelStyle={{ display: "none" }}
-            formatter={(value) => [`${value} min`]}
-            cursor={<CustomCursor />}
-          />
-          <Line
-            type="monotone"
-            dataKey="sessionLength"
-            stroke="white"
-            strokeWidth={2}
-            dot={false}
-            activeDot={{ r: 6, ...stylex.props(styles.dot) }}
-          />
+          {data.length > 0 ? (
+            <>
+              <Tooltip
+                wrapperStyle={{ outline: "none" }}
+                itemStyle={{
+                  color: "black",
+                  fontSize: typography.sm,
+                  fontWeight: 500,
+                }}
+                labelStyle={{ display: "none" }}
+                formatter={(value) => [`${value} min`]}
+                cursor={<CustomCursor />}
+              />
+              <Line
+                type="monotone"
+                dataKey="sessionLength"
+                stroke="white"
+                strokeWidth={2}
+                dot={false}
+                activeDot={{ r: 6, ...stylex.props(styles.dot) }}
+              />
+            </>
+          ) : (
+            <text
+              x="50%"
+              y="50%"
+              dy={0}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              {...stylex.props(styles.helpText)}
+            >
+              Données non disponibles
+            </text>
+          )}
         </LineChart>
       </ResponsiveContainer>
     </div>

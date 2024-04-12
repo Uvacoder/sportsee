@@ -22,6 +22,10 @@ const styles = stylex.create({
     fill: "white",
     fontSize: typography.sm,
   },
+  helpText: {
+    fontSize: typography.md,
+    fill: "white",
+  },
 });
 
 const CustomPolarAngleAxis: FC<{
@@ -90,9 +94,24 @@ const Performance: FC = () => {
           data={formattedData}
           margin={{ top: 24, right: 24, bottom: 24, left: 24 }}
         >
-          <PolarGrid gridType="polygon" radialLines={false} />
-          <PolarAngleAxis dataKey="kind" tick={<CustomPolarAngleAxis />} />
-          <Radar dataKey="value" fill={colors.primary} fillOpacity={0.6} />
+          {formattedData ? (
+            <>
+              <PolarGrid gridType="polygon" radialLines={false} />
+              <PolarAngleAxis dataKey="kind" tick={<CustomPolarAngleAxis />} />
+              <Radar dataKey="value" fill={colors.primary} fillOpacity={0.6} />
+            </>
+          ) : (
+            <text
+              x="50%"
+              y="50%"
+              dy={0}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              {...stylex.props(styles.helpText)}
+            >
+              Données non disponibles
+            </text>
+          )}
         </RadarChart>
       </ResponsiveContainer>
     </div>

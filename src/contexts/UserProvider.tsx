@@ -6,6 +6,15 @@ import { UserActivity } from "../types/userActivity";
 import { UserAverageSessions } from "../types/userAverageSessions";
 import { UserPerformance } from "../types/userPerformance";
 import NotificationContext from "./NotificationContext";
+import mockedUsers from "../mocks/users.mock.json";
+import mockedUsersActivity from "../mocks/userActivity.mock.json";
+import mockedUsersAverageSession from "../mocks/userAverageSession.mock.json";
+import mockedUsersPerformance from "../mocks/userPerformance.mock.json";
+
+const getRandomUserId = () => {
+  const mockedUsersIds = mockedUsers.map((user) => user.id);
+  return mockedUsersIds[Math.floor(Math.random() * mockedUsersIds.length)];
+};
 
 const UserProvider: FC<PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -17,9 +26,33 @@ const UserProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const { showNotification } = useContext(NotificationContext);
 
-  const getUser = async (userId: number) => {
+  const getUser = async (userId: number, useMockedData?: boolean) => {
     try {
       setIsLoading(true);
+
+      if (useMockedData) {
+        const mockedUserId = getRandomUserId();
+        const mockedUser = mockedUsers.find(
+          (user) => user.id === mockedUserId
+        ) as User;
+        const mockedUserActivity = mockedUsersActivity.find(
+          (activity) => activity.userId === mockedUserId
+        ) as UserActivity;
+        const mockedUserAverageSession = mockedUsersAverageSession.find(
+          (averageSession) => averageSession.userId === mockedUserId
+        ) as UserAverageSessions;
+        const mockedUserPerformance = mockedUsersPerformance.find(
+          (performance) => performance.userId === mockedUserId
+        ) as UserPerformance;
+
+        setUser(mockedUser);
+        setActivity(mockedUserActivity);
+        setAverageSession(mockedUserAverageSession);
+        setPerformance(mockedUserPerformance);
+
+        setIsLoading(false);
+        return;
+      }
 
       const promises = [
         requests.getUser(userId),

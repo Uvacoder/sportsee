@@ -1,0 +1,47 @@
+[
+  {
+    "id": 21,
+    "userInfos": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 25
+    },
+    "todayScore": 0.5,
+    "keyData": {
+      "calorieCount": 1800,
+      "proteinCount": 70,
+      "carbohydrateCount": 200,
+      "lipidCount": 60
+    }
+  },
+  {
+    "id": 32,
+    "userInfos": {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "age": 28
+    },
+    "todayScore": 0.25,
+    "keyData": {
+      "calorieCount": 2200,
+      "proteinCount": 100,
+      "carbohydrateCount": 180,
+      "lipidCount": 80
+    }
+  },
+  {
+    "id": 45,
+    "userInfos": {
+      "firstName": "David",
+      "lastName": "Johnson",
+      "age": 40
+    },
+    "todayScore": 0.18,
+    "keyData": {
+      "calorieCount": 2000,
+      "proteinCount": 80,
+      "carbohydrateCount": 250,
+      "lipidCount": 70
+    }
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "userId": 21,
+    "kind": {
+      "1": "cardio",
+      "2": "energy",
+      "3": "endurance",
+      "4": "strength",
+      "5": "speed",
+      "6": "intensity"
+    },
+    "data": [
+      {
+        "value": 82,
+        "kind": 1
+      },
+      {
+        "value": 104,
+        "kind": 2
+      },
+      {
+        "value": 75,
+        "kind": 3
+      },
+      {
+        "value": 57,
+        "kind": 4
+      },
+      {
+        "value": 183,
+        "kind": 5
+      },
+      {
+        "value": 97,
+        "kind": 6
+      }
+    ]
+  },
+  {
+    "userId": 32,
+    "kind": {
+      "1": "cardio",
+      "2": "energy",
+      "3": "endurance",
+      "4": "strength",
+      "5": "speed",
+      "6": "intensity"
+    },
+    "data": [
+      {
+        "value": 89,
+        "kind": 1
+      },
+      {
+        "value": 111,
+        "kind": 2
+      },
+      {
+        "value": 133,
+        "kind": 3
+      },
+      {
+        "value": 52,
+        "kind": 4
+      },
+      {
+        "value": 60,
+        "kind": 5
+      },
+      {
+        "value": 91,
+        "kind": 6
+      }
+    ]
+  },
+  {
+    "userId": 45,
+    "kind": {
+      "1": "cardio",
+      "2": "energy",
+      "3": "endurance",
+      "4": "strength",
+      "5": "speed",
+      "6": "intensity"
+    },
+    "data": [
+      {
+        "value": 79,
+        "kind": 1
+      },
+      {
+        "value": 109,
+        "kind": 2
+      },
+      {
+        "value": 20,
+        "kind": 3
+      },
+      {
+        "value": 42,
+        "kind": 4
+      },
+      {
+        "value": 20,
+        "kind": 5
+      },
+      {
+        "value": 88,
+        "kind": 6
+      }
+    ]
+  }
+]

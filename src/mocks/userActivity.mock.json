@@ -1,0 +1,122 @@
+[
+  {
+    "userId": 21,
+    "sessions": [
+      {
+        "day": "2020-07-01",
+        "kilogram": 75,
+        "calories": 200
+      },
+      {
+        "day": "2020-07-02",
+        "kilogram": 75,
+        "calories": 180
+      },
+      {
+        "day": "2020-07-03",
+        "kilogram": 76,
+        "calories": 250
+      },
+      {
+        "day": "2020-07-04",
+        "kilogram": 76,
+        "calories": 260
+      },
+      {
+        "day": "2020-07-05",
+        "kilogram": 75,
+        "calories": 140
+      },
+      {
+        "day": "2020-07-06",
+        "kilogram": 73,
+        "calories": 142
+      },
+      {
+        "day": "2020-07-07",
+        "kilogram": 71,
+        "calories": 370
+      }
+    ]
+  },
+  {
+    "userId": 32,
+    "sessions": [
+      {
+        "day": "2020-07-01",
+        "kilogram": 80,
+        "calories": 220
+      },
+      {
+        "day": "2020-07-02",
+        "kilogram": 81,
+        "calories": 190
+      },
+      {
+        "day": "2020-07-03",
+        "kilogram": 82,
+        "calories": 260
+      },
+      {
+        "day": "2020-07-04",
+        "kilogram": 85,
+        "calories": 300
+      },
+      {
+        "day": "2020-07-05",
+        "kilogram": 83,
+        "calories": 280
+      },
+      {
+        "day": "2020-07-06",
+        "kilogram": 84,
+        "calories": 240
+      },
+      {
+        "day": "2020-07-07",
+        "kilogram": 86,
+        "calories": 320
+      }
+    ]
+  },
+  {
+    "userId": 45,
+    "sessions": [
+      {
+        "day": "2020-07-01",
+        "kilogram": 70,
+        "calories": 180
+      },
+      {
+        "day": "2020-07-02",
+        "kilogram": 69,
+        "calories": 150
+      },
+      {
+        "day": "2020-07-03",
+        "kilogram": 68,
+        "calories": 210
+      },
+      {
+        "day": "2020-07-04",
+        "kilogram": 72,
+        "calories": 190
+      },
+      {
+        "day": "2020-07-05",
+        "kilogram": 71,
+        "calories": 170
+      },
+      {
+        "day": "2020-07-06",
+        "kilogram": 73,
+        "calories": 200
+      },
+      {
+        "day": "2020-07-07",
+        "kilogram": 70,
+        "calories": 220
+      }
+    ]
+  }
+]

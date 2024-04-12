@@ -7,7 +7,7 @@ import { UserPerformance } from "../types/userPerformance";
 interface UserContextType {
   isLoading: null | boolean;
   resetLoading: () => void;
-  getUser: (userId: number) => void;
+  getUser: (userId: number, useMockedData?: boolean) => void;
   resetUser: () => void;
   user: User | null;
   activity: UserActivity | null;

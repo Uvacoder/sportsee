@@ -1,0 +1,101 @@
+[
+  {
+    "userId": 21,
+    "sessions": [
+      {
+        "day": 1,
+        "sessionLength": 40
+      },
+      {
+        "day": 2,
+        "sessionLength": 35
+      },
+      {
+        "day": 3,
+        "sessionLength": 55
+      },
+      {
+        "day": 4,
+        "sessionLength": 60
+      },
+      {
+        "day": 5,
+        "sessionLength": 0
+      },
+      {
+        "day": 6,
+        "sessionLength": 32
+      },
+      {
+        "day": 7,
+        "sessionLength": 70
+      }
+    ]
+  },
+  {
+    "userId": 32,
+    "sessions": [
+      {
+        "day": 1,
+        "sessionLength": 20
+      },
+      {
+        "day": 2,
+        "sessionLength": 40
+      },
+      {
+        "day": 3,
+        "sessionLength": 0
+      },
+      {
+        "day": 4,
+        "sessionLength": 40
+      },
+      {
+        "day": 5,
+        "sessionLength": 15
+      },
+      {
+        "day": 6,
+        "sessionLength": 20
+      },
+      {
+        "day": 7,
+        "sessionLength": 50
+      }
+    ]
+  },
+  {
+    "userId": 45,
+    "sessions": [
+      {
+        "day": 1,
+        "sessionLength": 10
+      },
+      {
+        "day": 2,
+        "sessionLength": 5
+      },
+      {
+        "day": 3,
+        "sessionLength": 15
+      },
+      {
+        "day": 4,
+        "sessionLength": 20
+      },
+      {
+        "day": 5,
+        "sessionLength": 18
+      },
+      {
+        "day": 6,
+        "sessionLength": 45
+      },
+      {
+        "day": 7,
+        "sessionLength": 30
+      }
+    ]
+  }
+]

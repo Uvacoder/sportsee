@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { colors, typography } from "../../../styleVariables.stylex";
 import {
@@ -8,7 +8,7 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
-import UserContext from "../../../contexts/UserContext";
+import { usePerformance } from "../../../hooks/usePerformance";
 
 const styles = stylex.create({
   root: {
@@ -54,35 +54,7 @@ const CustomPolarAngleAxis: FC<{
 };
 
 const Performance: FC = () => {
-  const { performance } = useContext(UserContext);
-
-  const getTranslatedKind = (kind: string) => {
-    switch (kind) {
-      case "cardio":
-        return "Cardio";
-      case "energy":
-        return "Energie";
-      case "endurance":
-        return "Endurance";
-      case "strength":
-        return "Force";
-      case "speed":
-        return "Vitesse";
-      case "intensity":
-        return "Intensité";
-      default:
-        return kind;
-    }
-  };
-
-  const formattedData = performance?.data
-    ?.map(({ value, kind }) => {
-      return {
-        value,
-        kind: getTranslatedKind(performance?.kind[kind]),
-      };
-    })
-    .reverse();
+  const { data } = usePerformance();
 
   return (
     <div {...stylex.props(styles.root)}>
@@ -91,10 +63,10 @@ const Performance: FC = () => {
           cx="50%"
           cy="50%"
           outerRadius="80%"
-          data={formattedData}
+          data={data}
           margin={{ top: 24, right: 24, bottom: 24, left: 24 }}
         >
-          {formattedData ? (
+          {data ? (
             <>
               <PolarGrid gridType="polygon" radialLines={false} />
               <PolarAngleAxis dataKey="kind" tick={<CustomPolarAngleAxis />} />

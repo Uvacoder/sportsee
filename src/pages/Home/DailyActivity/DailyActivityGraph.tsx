@@ -1,6 +1,5 @@
-import { FC, useContext, useRef } from "react";
+import { FC } from "react";
 import * as stylex from "@stylexjs/stylex";
-import UserContext from "../../../contexts/UserContext";
 import {
   BarChart,
   XAxis,
@@ -12,7 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { colors, typography } from "../../../styleVariables.stylex";
-import { NameType } from "recharts/types/component/DefaultTooltipContent";
+import { useDailyActivity } from "../../../hooks/useDailyActivity";
 
 const styles = stylex.create({
   root: {
@@ -37,38 +36,10 @@ const styles = stylex.create({
 });
 
 const DailyActivityGraph: FC = () => {
-  const { activity } = useContext(UserContext);
-
-  const formatDate = (date: string) => {
-    const formattedDate = new Date(date);
-    return formattedDate.toLocaleDateString("fr-FR", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
-  const data = activity?.sessions?.map(({ day, kilogram, calories }) => ({
-    day: formatDate(day),
-    kilogram,
-    calories,
-  }));
-
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const getUnit = (string: NameType) => {
-    if (typeof string === "string" && string.includes("kg")) {
-      return "kg";
-    }
-    if (typeof string === "string" && string.includes("kCal")) {
-      return "kCal";
-    }
-    return "";
-  };
+  const { data, getUnit } = useDailyActivity();
 
   return (
-    <div {...stylex.props(styles.root)} ref={containerRef}>
+    <div {...stylex.props(styles.root)}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} barGap={8}>
           <text x="0%" y="5%" {...stylex.props(styles.title)}>

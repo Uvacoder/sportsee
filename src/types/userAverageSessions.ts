@@ -1,4 +1,4 @@
-interface Session {
+export interface Session {
   day: number;
   sessionLength: number;
 }
